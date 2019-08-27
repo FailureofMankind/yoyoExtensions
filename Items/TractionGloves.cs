@@ -11,7 +11,7 @@ namespace yoyoExtensions.Items
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Traction Gloves");
-			Tooltip.SetDefault("Strengthens Wooden Yoyo!");
+			Tooltip.SetDefault("10% increased melee criticial strike chance\nStrengthens Wooden Yoyo!");
 		}
         public override void SetDefaults()
         {
@@ -24,6 +24,7 @@ namespace yoyoExtensions.Items
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+			player.meleeCrit += 10;
 			yoyoPlayer modplayer = player.GetModPlayer<yoyoPlayer>(mod);
             modplayer.TractionGloves = true;
         }

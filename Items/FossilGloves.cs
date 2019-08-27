@@ -6,27 +6,36 @@ using Terraria.ModLoader;
 
 namespace yoyoExtensions.Items
 {
-	public class StickyFingas : ModItem
+	public class FossilGloves : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Magic Gloves");
-			Tooltip.SetDefault("Yoyos have a chance to restore health and mana!\n7% increased melee damage");
+			DisplayName.SetDefault("Fossil Gloves");
+			Tooltip.SetDefault("Yoyos periodically drop dust particles that damage enemies");
 		}
         public override void SetDefaults()
         {
             item.width = 34;
             item.height = 34;
-            item.value = 10000*2;
-            item.rare = 5;
+            item.value = 10000;
+            item.rare = 3;
             item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.meleeDamage += 0.07f;
 			yoyoPlayer modplayer = player.GetModPlayer<yoyoPlayer>(mod);
-            modplayer.StickyFingas = true;
+            modplayer.FossilGloves = true;
         }
+
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.FossilOre, 16);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
+    
     }
 }
