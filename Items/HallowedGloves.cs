@@ -15,8 +15,8 @@ namespace yoyoExtensions.Items
 		}
         public override void SetDefaults()
         {
-            item.width = 34;
-            item.height = 34;
+            item.width = 20;
+            item.height = 22;
             item.value = 10000*3;
             item.rare = 6;
             item.accessory = true;

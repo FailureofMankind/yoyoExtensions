@@ -27,6 +27,10 @@ namespace yoyoExtensions
         public bool SuperYoyoBag;
         public bool TractionGloves;
         public bool StickyFingas;
+        public bool FossilGloves;
+        public bool LunarGloves;
+        public bool SporeGloves;
+        public bool MagmaGloves;
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~v
         public override void ResetEffects()
         {
@@ -34,35 +38,76 @@ namespace yoyoExtensions
             SuperYoyoBag = false;
             TractionGloves = false;
             StickyFingas = false;
+            FossilGloves = false;
+            LunarGloves = false;
+            SporeGloves = false;
+            MagmaGloves = false;
         }
-
-        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
-        {
-        }
+        // public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
+        // {
+        // }
         public override void OnHitNPCWithProj(Projectile projectile, NPC target, int damage, float knockback, bool crit)
 		{
             if(projectile.aiStyle == 99)
             {
+                if(LunarGloves)
+                {
+                    int buffDuration = 60*10;
+                    target.AddBuff(BuffID.OnFire, buffDuration);
+                    target.AddBuff(BuffID.Frostburn, buffDuration);
+                    target.AddBuff(BuffID.Poisoned, buffDuration);
+                    target.AddBuff(BuffID.Venom, buffDuration);
+                    target.AddBuff(BuffID.CursedInferno, buffDuration);
+                    target.AddBuff(BuffID.Ichor, buffDuration);
+                    target.AddBuff(BuffID.Daybreak, buffDuration);
+                }
+                if(MagmaGloves)
+                {
+                    target.AddBuff(BuffID.OnFire, 60*4);
+                }
+                if(SporeGloves)
+                {
+                    target.AddBuff(BuffID.Poisoned, 60*20);
+                }
                 if(StickyFingas)
                 {
-                    if(player.channel)
+                    if(player.channel && Main.rand.Next(10) == 1 && !target.friendly)
                     {
-                        projectile.position.X = target.Center.X;
-                        projectile.position.Y = target.Center.Y;
+                        player.statLife += 5;
+                        player.statMana += 10;
+
+                        Vector2 velocityShoot = player.Center - target.Center;
+                        float magnitude = Magnitude(velocityShoot);
+                        if(magnitude > 0)
+                        {
+                            velocityShoot *= 5f / magnitude;
+                        } 
+                        else
+                        {
+                            velocityShoot = new Vector2(0f, 10f);
+                        }
+                        for (int i = 0; i < 10; i++)
+                        {
+                            Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 20);
+                            dust.noGravity = true;
+                            dust.scale = 1.6f;
+                            dust.velocity = velocityShoot*i;
+                        }
+                        Main.PlaySound(SoundID.Item8, projectile.position);
                     }
                 }
                 if(TractionGloves && projectile.type == 541)    //wooden yoyo id
                 {
-                    target.immune[projectile.owner] = 5;
+                    target.immune[projectile.owner] = 7;
                     if(player.channel)
                     {
-                        projectile.velocity *= -1;
+                        projectile.velocity *= 0f;
                     }
                 }
                 if(HallowedGloves)
                 {
                     int projNum = player.ownedProjectileCounts[projectile.type];
-                    if(projNum < 5)
+                    if(projNum < 4)
                     {
                         Projectile.NewProjectile(player.Center.X, player.Center.Y, Main.rand.Next(-3, 3), Main.rand.Next(-3, 3), projectile.type, projectile.damage, projectile.knockBack, Main.myPlayer, 0f, 0f); //Spawning a projectile
                     }
@@ -73,26 +118,25 @@ namespace yoyoExtensions
                     float magnitude = Magnitude(velocityShoot);
                     if(magnitude > 0)
                     {
-                        velocityShoot *= 25f / magnitude;
+                        velocityShoot *= 5f / magnitude;
                     } 
                     else
                     {
                         velocityShoot = new Vector2(0f, 10f);
                     }            
-                    int laser = Projectile.NewProjectile(target.Center.X, target.Center.Y, velocityShoot.X, velocityShoot.Y, 88, (int)(projectile.damage / 4), 5, player.whoAmI, 0f, 0f);
+                    int laser = Projectile.NewProjectile(player.Center.X, player.Center.Y, velocityShoot.X, velocityShoot.Y, 88, projectile.damage, 5, player.whoAmI, 0f, 0f);
                     Main.projectile[laser].tileCollide = false;
                     Main.projectile[laser].timeLeft = 240;
                     Main.projectile[laser].magic = false;
                     Main.projectile[laser].melee = true;
-                    Main.projectile[laser].penetrate = 1;
+                    Main.projectile[laser].penetrate = 5;
                 }
             }
-
         }
-        public override void PostHurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
-        {
+        // public override void PostHurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+        // {
 
-        }
+        // }
         public override void SetupStartInventory(IList<Item> startItem)
         {            
             Item item = new Item();

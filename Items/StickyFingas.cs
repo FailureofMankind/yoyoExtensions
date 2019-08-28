@@ -11,12 +11,12 @@ namespace yoyoExtensions.Items
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Magic Gloves");
-			Tooltip.SetDefault("Locks yoyos into enemies!\n7% increased melee damage");
+			Tooltip.SetDefault("Yoyos have a chance to restore health and mana!\n7% increased melee damage");
 		}
         public override void SetDefaults()
         {
-            item.width = 34;
-            item.height = 34;
+            item.width = 20;
+            item.height = 22;
             item.value = 10000*2;
             item.rare = 5;
             item.accessory = true;
