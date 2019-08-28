@@ -12,7 +12,7 @@ namespace yoyoExtensions.Projectiles
 			projectile.height = 16;
 			projectile.aiStyle = 2;
 			projectile.friendly = true;
-			projectile.penetrate = 1;
+			projectile.penetrate = 2;
 			projectile.melee = true;
 		}
 		public override void AI()

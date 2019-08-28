@@ -11,12 +11,12 @@ namespace yoyoExtensions.Items
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fossil Gloves");
-			Tooltip.SetDefault("Yoyos periodically drop dust particles which do 60% of yoyo projectile damage\nYoyos have a chance to inflict Broken Armor");
+			Tooltip.SetDefault("Yoyos periodically drop dust particles that damage enemies");
 		}
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 22;
+            item.width = 34;
+            item.height = 34;
             item.value = 10000;
             item.rare = 3;
             item.accessory = true;
