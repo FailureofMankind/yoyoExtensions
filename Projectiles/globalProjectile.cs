@@ -25,7 +25,6 @@ namespace yoyoExtensions.Projectiles
         }
 
         int count;
-
         public override void AI(Projectile projectile)
         {
             count++;
