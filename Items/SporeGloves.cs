@@ -6,38 +6,37 @@ using Terraria.ModLoader;
 
 namespace yoyoExtensions.Items
 {
-	public class TractionGloves : ModItem
+	public class SporeGloves : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Traction Gloves");
-			Tooltip.SetDefault("10% increased melee criticial strike chance\nStrengthens Wooden Yoyo!");
+			DisplayName.SetDefault("Spore Gloves");
+			Tooltip.SetDefault("Yoyos periodically release spore clouds which do 30% of yoyo projectile damage\nYoyos inflict Poisoned debuf");
 		}
         public override void SetDefaults()
         {
             item.width = 20;
             item.height = 22;
-            item.value = 100*35;
-            item.rare = 1;
+            item.value = 10000;
+            item.rare = 2;
             item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-			player.meleeCrit += 10;
 			yoyoPlayer modplayer = player.GetModPlayer<yoyoPlayer>(mod);
-            modplayer.TractionGloves = true;
+            modplayer.SporeGloves = true;
         }
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.Wood, 2);
-			recipe.AddIngredient(ItemID.Gel, 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.AddTile(TileID.Torches);
+			recipe.AddIngredient(ItemID.JungleSpores, 6);
+			recipe.AddIngredient(ItemID.RichMahogany, 10);
+			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
+    
     }
 }

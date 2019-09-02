@@ -6,36 +6,34 @@ using Terraria.ModLoader;
 
 namespace yoyoExtensions.Items
 {
-	public class TractionGloves : ModItem
+	public class LunarGloves : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Traction Gloves");
-			Tooltip.SetDefault("10% increased melee criticial strike chance\nStrengthens Wooden Yoyo!");
+			DisplayName.SetDefault("Lunar Gloves");
+			Tooltip.SetDefault("Yoyos release homing lasers that explode on hit\nYoyos inflict On Fire, Frostburn, Poisoned, Venom, Cursed Inferno, Ichor and Daybroken on hit\n15% increased melee damage");
 		}
         public override void SetDefaults()
         {
             item.width = 20;
             item.height = 22;
-            item.value = 100*35;
-            item.rare = 1;
+            item.value = 10000;
+            item.rare = 10;
             item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-			player.meleeCrit += 10;
+			player.meleeDamage += 0.15f;
 			yoyoPlayer modplayer = player.GetModPlayer<yoyoPlayer>(mod);
-            modplayer.TractionGloves = true;
+            modplayer.LunarGloves = true;
         }
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.Wood, 2);
-			recipe.AddIngredient(ItemID.Gel, 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.AddTile(TileID.Torches);
+			recipe.AddIngredient(ItemID.FossilOre, 10);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

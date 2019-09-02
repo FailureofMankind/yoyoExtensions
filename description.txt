@@ -2,3 +2,16 @@ Did you ever wanted to go beyond that yoyobag? Have you ever thought of yoyos ha
 This mod expands on the yoyo subclass!
 
 Currently WIP, but help will be appreciated!
+
+~~~~~~~~~~~~ update 0.1.1 ~~~~~~~~~~~~
+- added Bone Gloves (yoyo)
+- added Elemental Gloves
+- some minor adjustments
+
+~~~~~~~~~~~~ update 0.1 ~~~~~~~~~~~~
+- added Traction Gloves
+- added Spore Gloves
+- added Fossil Gloves
+- added Magma Gloves
+- added Magic Gloves, dropped by mimics
+- "Yoyo" is a joke item lol
