@@ -6,38 +6,37 @@ using Terraria.ModLoader;
 
 namespace yoyoExtensions.Items
 {
-	public class TractionGloves : ModItem
+	public class Bone_GloveYoyo : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Traction Gloves");
-			Tooltip.SetDefault("10% increased melee criticial strike chance\nStrengthens Wooden Yoyo!");
+			DisplayName.SetDefault("Bone Glove (Yoyo)");
+			Tooltip.SetDefault("'There are 27 bones in each of your hands... what are you gonna do with them?...'\nUpon hitting enemies, your bones animate and burst out of your body\nThis, however, doesn't hurt you, but is indeed painful...\nYoyos inflict Frostburn");
 		}
         public override void SetDefaults()
         {
             item.width = 20;
             item.height = 22;
-            item.value = 100*35;
-            item.rare = 1;
+            item.value = 10000;
+            item.rare = 3;
             item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-			player.meleeCrit += 10;
 			yoyoPlayer modplayer = player.GetModPlayer<yoyoPlayer>(mod);
-            modplayer.TractionGloves = true;
+            modplayer.Bone_GloveYoyo = true;
         }
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.Wood, 2);
-			recipe.AddIngredient(ItemID.Gel, 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.AddTile(TileID.Torches);
+			recipe.AddIngredient(ItemID.Bone, 27);
+			recipe.AddIngredient(null, "TractionGloves");
+			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
+    
     }
 }

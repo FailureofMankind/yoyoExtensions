@@ -13,7 +13,7 @@ namespace yoyoExtensions.Items
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 1;
+			item.damage = 2;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
@@ -29,14 +29,6 @@ namespace yoyoExtensions.Items
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType($"{Itemname}Proj");
-		}
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
 		}
 	}
 }

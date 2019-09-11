@@ -34,9 +34,8 @@ namespace yoyoExtensions.Projectiles
 		
 		public override void OnHitNPC(NPC target, int damage, float knockBack, bool crit)
 		{
-			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, Main.rand.Next(-3, 3), Main.rand.Next(-3, 3), projectile.type, projectile.damage, projectile.knockBack, Main.myPlayer, 0f, 0f); //Spawning a projectile
-			target.immune[projectile.owner] = 2;
-			projectile.damage++;
+			target.velocity = projectile.velocity;
+			target.immune[projectile.owner] = 0;
 		}
 	}
 }
