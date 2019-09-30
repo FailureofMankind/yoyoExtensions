@@ -1,4 +1,4 @@
-using Terraria.ID;
+cusing Terraria.ID;
 using Terraria.ModLoader;
 
 namespace yoyoExtensions.Items

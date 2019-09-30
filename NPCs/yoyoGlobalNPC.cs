@@ -66,7 +66,6 @@ namespace yoyoExtensions.NPCs
         public override void PostAI(NPC npc)
         {
         }     
-
         public override void NPCLoot(NPC npc)
         {
             if(npc.type == NPCID.Mimic && Main.rand.Next(6) == 1)
