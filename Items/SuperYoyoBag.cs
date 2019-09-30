@@ -11,7 +11,7 @@ namespace yoyoExtensions.Items
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Super Yoyo bag");
-			Tooltip.SetDefault("You discharge lasers at enemies hit with your yoyo.\nYoyo bag effect");
+			Tooltip.SetDefault("You discharge lasers at enemies hit with your yoyo\nYoyo bag effect");
 		}
         public override void SetDefaults()
         {

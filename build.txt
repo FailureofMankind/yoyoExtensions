@@ -1,3 +1,6 @@
 author = FailureofMankind
-version = 0.1
+version = 0.1.2
 displayName = Yoyo Extensions
+hideCode = true
+hideResources = false
+homepage = https://discord.gg/v4VASHJ

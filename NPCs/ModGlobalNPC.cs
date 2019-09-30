@@ -23,15 +23,21 @@ namespace yoyoExtensions.Items
                 return true;
             }
         }        
-
+        public bool brokenArmorMod;
         public override void ResetEffects(NPC npc)
         {
-
+            brokenArmorMod = false;
 		}    
         public override void DrawEffects(NPC npc, ref Color drawColor)
 		{
         }
-        
+        public override void PostAI(NPC npc)
+        {
+            if(brokenArmorMod)
+            {
+                
+            }
+        }     
         public override void NPCLoot(NPC npc)
         {
             if(npc.type == NPCID.Mimic && Main.rand.Next(6) == 1)

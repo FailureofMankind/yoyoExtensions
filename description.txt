@@ -1,4 +1,24 @@
 Did you ever wanted to go beyond that yoyobag? Have you ever thought of yoyos having more than just yoyos? Well...
-This mod expands on the yoyo subclass!
+This mod expands on the yoyo subclass! (hi Chippy ;3)
 
-Currently WIP, but help will be appreciated!
+Currently this mod adds accessories that enhance yoyos, but yoyos are coming soon...
+
+~~~~~ recipe browser recommended ~~~~~
+
+Currently WIP, but help will be highly appreciated!
+--------- update 0.1.2 ---------
+- bug fixed where mod would crash because of a hidden item
+
+--------- update 0.1.1 ---------
+- added Bone Gloves (yoyo)
+- added Elemental Gloves
+- some minor adjustments
+- more joke items, but this time they have a rare drop chance by hostile mobs
+- Secret rare item for Chippy because why not :)
+
+--------- update 0.1 ---------
+- added Traction Gloves
+- added Spore Gloves
+- added Fossil Gloves
+- added Magma Gloves
+- added Magic Gloves, dropped by mimics

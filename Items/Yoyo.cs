@@ -5,15 +5,14 @@ namespace yoyoExtensions.Items
 {
 	public class Yoyo : ModItem
 	{
-		string Itemname = "Yoyo";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault(Itemname);
+			DisplayName.SetDefault("SwordYo");
 			Tooltip.SetDefault("xd");
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 1;
+			item.damage = 2;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
@@ -28,15 +27,7 @@ namespace yoyoExtensions.Items
 			item.rare = 2;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType($"{Itemname}Proj");
-		}
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			item.shoot = mod.ProjectileType($"YoyoProj");//string interpolation i tihnk
 		}
 	}
 }
